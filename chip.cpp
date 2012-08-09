@@ -1,44 +1,3 @@
-/****************************************************************************
-**
-** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
-** All rights reserved.
-** Contact: Nokia Corporation (qt-info@nokia.com)
-**
-** This file is part of the demonstration applications of the Qt Toolkit.
-**
-** $QT_BEGIN_LICENSE:LGPL$
-** GNU Lesser General Public License Usage
-** This file may be used under the terms of the GNU Lesser General Public
-** License version 2.1 as published by the Free Software Foundation and
-** appearing in the file LICENSE.LGPL included in the packaging of this
-** file. Please review the following information to ensure the GNU Lesser
-** General Public License version 2.1 requirements will be met:
-** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
-**
-** In addition, as a special exception, Nokia gives you certain additional
-** rights. These rights are described in the Nokia Qt LGPL Exception
-** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
-**
-** GNU General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU General
-** Public License version 3.0 as published by the Free Software Foundation
-** and appearing in the file LICENSE.GPL included in the packaging of this
-** file. Please review the following information to ensure the GNU General
-** Public License version 3.0 requirements will be met:
-** http://www.gnu.org/copyleft/gpl.html.
-**
-** Other Usage
-** Alternatively, this file may be used in accordance with the terms and
-** conditions contained in a signed written agreement between you and Nokia.
-**
-**
-**
-**
-**
-** $QT_END_LICENSE$
-**
-****************************************************************************/
-
 #include "chip.h"
 #include <QtGui>
 
@@ -50,23 +9,23 @@ Chip::Chip(const QColor &color, int x, int y)
     setZValue((x + y) % 2);
 
     setFlags(ItemIsSelectable | ItemIsMovable);
-    // ইমেইজ সিলেক্ট এবং মুভ করা যাবে
+    // ইমেইজ সিলেক্ট এবং মুভ করা যাবে।
     setAcceptsHoverEvents(true);
-    //??????? ??? ???? ????? ?????? ????
+    // ইমেইজের উপর মাউস রাখলে ইফেক্ট দেখাবে।
 }
 
 QRectF Chip::boundingRect() const
 {
     return QRectF(0, 0, 110, 70);
-    // ??????? ??? ?????? ????? ?? ???????? ????
+    // চিপগুলো উইন্ডোর কোন অবস্থানে থাকবে তা নির্দেশ করে।
 }
 
 QPainterPath Chip::shape() const
 {
     QPainterPath path;
-    // ???????? ??? ??????? ????? ????? ???? ??????? ??? ???
+    // এটা দিয়ে বিভিন্ন আকার যেমন সার্কেল, আয়তাকার বিভিন্ন কিছু দেয়া যায়।
     path.addRect(14, 14, 82, 42);
-    // ??? ???? ?????? ??, ??? ??? ?????? ??? ??? ??? ?? ???? ??????? ??? ?? ???
+    // এটা এখানে কি কাজ করছে বোঝা যাচ্ছে না।
     return path;
 }
 
@@ -75,10 +34,10 @@ void Chip::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
     Q_UNUSED(widget);
 
     QColor fillColor = (option->state & QStyle::State_Selected) ? color.dark(150) : color;
-    // ???? ????? ???? ???? ??????? ???? ????? ????? ????
+    // মাউস যদি চিপের উপর সিলেক্ট করে তাহলে এটা একটু অন্ধাকার হয়ে যাবে।
     if (option->state & QStyle::State_MouseOver)
         fillColor = fillColor.light(125);
-    // ???? ???? ????? ????? ????? ????
+    // মাউস রাখলেই উজ্জলতা দেখাবে
     const qreal lod = option->levelOfDetailFromTransform(painter->worldTransform());
     if (lod < 0.2) {
         if (lod < 0.125) {
