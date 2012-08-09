@@ -50,6 +50,8 @@ void Chip::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
         QBrush b = painter->brush();
         painter->setBrush(fillColor);
         painter->drawRect(13, 13, 97, 57);
+        // জুমের মান যত কমানো হবে চিপের ছবিগুলো যাতে খুব সুন্দর করে জুম আউট হয়, 
+        // তাই এরমান প্রথমে .2 পরে .125 ব্যবহার করা হয়েছে।
         painter->setBrush(b);
         return;
     }
