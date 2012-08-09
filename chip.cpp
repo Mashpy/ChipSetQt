@@ -39,9 +39,11 @@ void Chip::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
         fillColor = fillColor.light(125);
     // মাউস রাখলেই উজ্জলতা দেখাবে
     const qreal lod = option->levelOfDetailFromTransform(painter->worldTransform());
+    // levelOfDetailFromTransform ফাংশন সম্ভবত জুম আউট করার সময় কাজ করে।
     if (lod < 0.2) {
         if (lod < 0.125) {
             painter->fillRect(QRectF(0, 0, 110, 70), fillColor);
+            // এটা পরিবর্তনে জুম আউটের মান পরিবর্তিত হয়। 
             return;
         }
 
