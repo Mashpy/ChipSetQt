@@ -61,7 +61,7 @@ void Chip::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
     int width = 0;
     if (option->state & QStyle::State_Selected)
         width += 2;
-
+        // এর পরিবর্তনে এপ্লিকেশনে খুব একটা বেশি পরিবর্তন দেখতে পাচ্ছি না।
     pen.setWidth(width);
     QBrush b = painter->brush();
     painter->setBrush(QBrush(fillColor.dark(option->state & QStyle::State_Sunken ? 120 : 100)));
@@ -95,10 +95,12 @@ void Chip::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
         for (int i = 0; i <= 10; i += (lod > 0.5 ? 1 : 2)) {
             lines.append(QLineF(18 + 7 * i, 13, 18 + 7 * i, 5));
             lines.append(QLineF(18 + 7 * i, 54, 18 + 7 * i, 62));
+            // লম্বালম্বিভাবে চিপের পাশে সার্কিটের মত দাগ দাগ আকার দেয়া হয়।
         }
         for (int i = 0; i <= 6; i += (lod > 0.5 ? 1 : 2)) {
             lines.append(QLineF(5, 18 + i * 5, 13, 18 + i * 5));
             lines.append(QLineF(94, 18 + i * 5, 102, 18 + i * 5));
+            // পাশাপাশিভাবে চিপের পাশে সার্কিটের মত দাগ দাগ আকার দেয়া হয়।
         }
     }
     if (lod >= 0.4) {
