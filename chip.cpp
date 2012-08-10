@@ -111,6 +111,7 @@ void Chip::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
             QLineF(35, 40, 45, 35),
             QLineF(45, 30, 45, 40),
             QLineF(45, 35, 55, 35)
+            // চিপের ভেতর সার্কিটের গেইট আকার দেয়ার জন্য ।
         };
         lines.append(lineData, 6);
     }
