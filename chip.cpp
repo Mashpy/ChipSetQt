@@ -65,8 +65,8 @@ void Chip::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
     pen.setWidth(width);
     QBrush b = painter->brush();
     painter->setBrush(QBrush(fillColor.dark(option->state & QStyle::State_Sunken ? 120 : 100)));
-
     painter->drawRect(QRect(14, 14, 79, 39));
+    // এটা চিপগুলোর সবুজ রঙ নির্দেশ করে।
     painter->setBrush(b);
 
     if (lod >= 1) {
