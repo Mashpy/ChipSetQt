@@ -86,6 +86,7 @@ void Chip::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
         painter->drawText(170, 180, QString("Model: VSC-2000 (Very Small Chip) at %1x%2").arg(x).arg(y));
         painter->drawText(170, 200, QString("Serial number: DLWR-WEER-123L-ZZ33-SDSJ"));
         painter->drawText(170, 220, QString("Manufacturer: Chip Manufacturer"));
+        // চিপের মধ্যে লেখাটি লিখবে।
         painter->restore();
     }
 
@@ -128,6 +129,7 @@ void Chip::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
             path.lineTo(stuff.at(i));
         painter->drawPath(path);
         painter->setPen(p);
+        // যখন Shift চাপ দিয়ে মাউস দিয়ে কোন লাইন ড্র করি তখন লাল লাইন আসবে।
     }
 }
 
@@ -143,6 +145,7 @@ void Chip::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
         stuff << event->pos();
         update();
         return;
+     // শিফট এর কাজ করানোর জন্য Shift modifier ইউজ করা হয়।
     }
     QGraphicsItem::mouseMoveEvent(event);
 }
